@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <title>Document</title>
+</head>
+<body>
+   <div class="">
+
+        <div id="vue-1" v-bind:title="message + ' ' + 'Vue.js is EASY'">
+            <!-- переменные записываются в скобки {{ }} -->
+            {{ message }}
+
+            <h1 v-if="status == 1">Свойство равно 1</h1>
+            <h1 v-else-if="status == 2">Свойство равно 2</h1>
+            <!-- между блоками v-if и v-else ничего быть не должно-->
+            <h1 v-else>Свойство равно {{ status }}</h1>
+        
+            <template v-if="status == 1">
+                <h1>Заголовок 1</h1>
+                <p>описание 1</p>
+            </template>
+
+            <template v-else>
+                <h1>Заголовок 2</h1>
+                <p>описание 2</p>
+            </template>
+
+            <h1 v-show="visible">Заголовок с v-show</h1>
+
+            <div class="class-default list" v-bind:class="{ active: isActive, 'btn-default': isBtn }"></div>
+            <div :class="[ isActive ? 'active btn' : 'disabled a', 'default']"></div>
+            <h1 :style="{ color: 'red', width: w + 'px'}">Заголовок</h1>
+        </div>
+        
+        <hr>
+
+        <div id="vue-2">
+            <ul>
+                <li v-for="(item, index) in list">
+                    index {{ index }}: {{ item }}
+                </li>
+            </ul>
+            <ul>
+                <li v-for="person in users">
+                    {{ person.id }}: {{ person.name }}
+                </li>
+            </ul>
+            <!-- если метод объекта без аргументов, скобки можно не ставить. @click - более короткая запись v-on:click-->
+            <table border="1" @click="showAlert_1()">
+                <thead>
+                    <th>ID</th>
+                    <th>Имя</th>
+                </thead>
+                <tbody>
+                    <tr v-for="person in users">
+                        <td>{{ person.id }}</td>
+                        <td>{{ person.name }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button  type="button" @click="high()">Counter равен: {{ counter }}</button>
+        </div>
+
+        <hr>
+
+        <div id="vue-3">
+            <h3>{{ textSearch }} (длина: {{ textSearch.length }})</h3>
+            <!-- директива v-model используется для двунаправленного связывния данных.-->
+            <input type="text" v-model="textSearch">
+            <button type="button" @click="getCities()">Получить хештеги</button>
+            <ul>
+                <li v-for="hashtag in hashtags">{{ hashtag }}</li>
+            </ul>
+            <ul>
+                <li v-for="city in cities">{{ city.region }}: {{ city.city }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "cots_pavlenko",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-watch": "^5.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigpixels/weather-forecast.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bigpixels/weather-forecast/issues"
+  },
+  "homepage": "https://github.com/bigpixels/weather-forecast#readme",
+  "description": ""
+}
